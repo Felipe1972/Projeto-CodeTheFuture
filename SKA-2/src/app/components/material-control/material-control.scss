@@ -1,0 +1,171 @@
+// Variáveis de cor 
+$color-sidebar-bg: #d9d9d9;
+$color-main-bg: #2c2f38; // Azul escuro/cinza do fundo
+$color-green-accent: #34a853; // Verde da marca e rodapé
+$color-text-white: #ffffff;
+$color-card-bg: #d9d9d9; // Cinza claro dos botões
+$color-icon-black: #000000;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Ocupa a altura total da tela */
+  font-family: sans-serif;
+}
+
+.dashboard-layout {
+  display: flex;
+  flex: 1; // Ocupa o espaço disponível acima do rodapé
+  position: relative;
+  overflow: hidden; // Evita barras de rolagem indesejadas
+}
+
+
+.sidebar {
+  width: 70px; // Largura fixa estreita
+  background-color: $color-sidebar-bg;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  z-index: 10; // Garante que fique acima do conteúdo se necessário
+
+  .icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    
+    img {
+      width: 32px;
+      height: 32px;
+      display: block;
+      // Os ícones enviados são pretos, se precisar que fiquem brancos
+      // dependendo do estado, podemos usar filtros CSS aqui.
+    }
+
+    &.active {
+      // Estilo para o ícone ativo (home no protótipo)
+      // Adicionar estilo se necessário, no protótipo parece igual.
+    }
+  }
+
+  .sidebar-middle {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+
+.main-content {
+  flex: 1;
+  background-color: $color-main-bg;
+  color: $color-text-white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.brand-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: $color-green-accent;
+  padding: 15px 30px 15px 80px; // Padding extra na esquerda para compensar a sidebar
+  border-bottom-right-radius: 40px; // O arredondado do canto
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+
+  .brand-mp {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-right: 5px;
+    color: #1a5c2e; // Um verde mais escuro para o "MP"
+  }
+  
+  .brand-text {
+     color: #1a5c2e;
+  }
+}
+
+.content-header {
+  margin-top: 80px; // Espaço para não ficar debaixo do logo
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  position: relative;
+
+  .back-button {
+    background: none;
+    border: none;
+    color: $color-text-white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    margin-right: 20px;
+    position: absolute; // Para posicionar livremente
+    left: 90px;
+  }
+
+  h1 {
+    font-weight: normal;
+    font-size: 2.2rem;
+    margin: 0 auto; // Centraliza o título horizontalmente
+    letter-spacing: 1px;
+  }
+}
+
+//BOTÕES CENTRAIS (Cards)
+.navigation-cards {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px; // Espaço entre os dois cartões
+
+  .nav-card {
+    background-color: $color-card-bg;
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    color: $color-icon-black;
+
+    &:hover {
+      transform: scale(1.05); // Pequeno efeito ao passar o mouse
+    }
+
+    .card-icon {
+      width: 80px;
+      height: auto;
+      margin-bottom: 15px;
+
+      // Ajuste fino para o ícone do tijolo que parece um pouco menor no design
+      &.icon-brick {
+         width: 70px;
+      }
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: normal;
+      margin: 0;
+    }
+  }
+}
+
+
+.footer-bar {
+  height: 25px; // Altura fina
+  background-color: $color-green-accent;
+  width: 100%;
+}
